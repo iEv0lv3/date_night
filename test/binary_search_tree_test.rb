@@ -26,4 +26,12 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 78, tree.root.number
     assert_equal 'Star Wars: A New Hope', tree.root.data
   end
+
+  def test_insert_to_binary_search_tree
+    tree = BinarySearchTree.new
+    tree.root = Node.new(50, 'Club Dread')
+    tree.insert(54, 'Orange County' )
+
+    assert_equal 'Orange County', tree.root.right.data
+  end
 end
