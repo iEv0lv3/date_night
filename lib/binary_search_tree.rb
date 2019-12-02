@@ -1,8 +1,7 @@
 class BinarySearchTree
-  attr_accessor :head, :next_node
+  attr_accessor :root
 
   def initialize
-    @head = nil
-    @next_node = nil
+    @root = nil
   end
 end
