@@ -1,3 +1,5 @@
+require './lib/node'
+
 class BinarySearchTree
   attr_accessor :root
 
@@ -8,12 +10,23 @@ class BinarySearchTree
   def insert(number, data)
     @root = Node.new(number, data) if @root.nil?
     current_node = @root
-    if number > @root.number
-      current_node = current_node.right until current_node.right.nil?
-      current_node.right = Node.new(number, data)
-    elsif number < @root.number
-      current_node = current_node.left until current_node.left.nil?
-      current_node.left = Node.new(number, data)
+    loop do
+      if number > current_node.number && !current_node.right.nil?
+        current_node = current_node.right
+      elsif number > current_node.number && current_node.right.nil?
+        current_node.right = Node.new(number, data)
+        break
+      elsif number < current_node.number && !current_node.left.nil?
+        current_node = current_node.left
+      elsif number < current_node.number && current_node.left.nil?
+        current_node.left = Node.new(number, data)
+        break
+      end
     end
+  end
+
+  def depth
+    count = 0
+    count if @root.nil? || (@root.left.nil? && @root.right.nil?)
   end
 end
