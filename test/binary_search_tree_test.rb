@@ -31,7 +31,9 @@ class BinarySearchTreeTest < Minitest::Test
     tree = BinarySearchTree.new
     tree.root = Node.new(50, 'Club Dread')
     tree.insert(54, 'Orange County' )
+    tree.insert(7, '50 First Dates')
 
     assert_equal 'Orange County', tree.root.right.data
+    assert_equal '50 First Dates', tree.root.left.data
   end
 end
