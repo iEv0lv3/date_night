@@ -29,11 +29,17 @@ class BinarySearchTreeTest < Minitest::Test
 
   def test_insert_to_binary_search_tree
     tree = BinarySearchTree.new
-    tree.root = Node.new(50, 'Club Dread')
-    tree.insert(54, 'Orange County' )
+    tree.root = Node.new(50, 'Club Dred')
+    tree.insert(54, 'Tropic Thunder')
     tree.insert(7, '50 First Dates')
 
-    assert_equal 'Orange County', tree.root.right.data
+    assert_equal 'Tropic Thunder', tree.root.right.data
     assert_equal '50 First Dates', tree.root.left.data
+  end
+
+  def test_root_depth_level_of_binary_search_tree
+    tree = BinarySearchTree.new
+
+    assert_equal 0, tree.depth
   end
 end
