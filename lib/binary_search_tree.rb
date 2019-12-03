@@ -25,8 +25,22 @@ class BinarySearchTree
     end
   end
 
-  def depth
+  def depth(number)
     count = 0
     count if @root.nil? || (@root.left.nil? && @root.right.nil?)
+    current_node = @root
+    loop do
+      if number > current_node.number && !current_node.right.nil?
+        current_node = current_node.right
+        count += 1
+      elsif number == current_node.number
+        return count
+      elsif number < current_node.number && !current_node.left.nil?
+        current_node = current_node.left
+        count += 1
+      elsif number == current_node.number
+        return count
+      end
+    end
   end
 end
